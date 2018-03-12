@@ -1,0 +1,15 @@
+Ferramentas e utilitários para listar informações variadas de hardware
+Ferramentas e utilitários para manipular dispositivos USB
+Entendimento conceitual do sysfs, udev e dbus.
+
+O quê é o sysfs?
+
+Para quê serve o diretório /sys/?
+
+Para quê serve o diretório /proc/?
+
+Para quê serve o diretório /dev/?
+
+Para quê servem os comandos lsmod, lspci e lsusb?
+
+O quê faz o comando modprobe?

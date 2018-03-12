@@ -1,0 +1,44 @@
+Dia 1:
+  Topic 101: System Architecture
+  101.1 Determine and configure hardware settings
+Dia 2:
+  101.2 Boot the system
+  101.3 Change runlevels / boot targets and shutdown or reboot system
+Dia 3:
+  Topic 102: Linux Installation and Package Management
+  102.1 Design hard disk layout
+  102.2 Install a boot manager
+Dia 4:
+  102.3 Manage shared libraries
+Dia 5:
+  102.4 Use Debian package management
+  102.5 Use RPM and YUM package management
+Dia 6:
+  Topic 103: GNU and Unix Commands
+  103.1 Work on the command line
+Dia 7:
+  103.2 Process text streams using filters
+Dia 8:
+  103.3 Perform basic file management
+  103.4 Use streams, pipes and redirects
+Dia 9:
+  103.5 Create, monitor and kill processes
+  103.6 Modify process execution priorities
+Dia 10:
+  103.7 Search text files using regular expressions
+  103.8 Perform basic file editing operations using vi
+Dia 11:
+  Topic 104: Devices, Linux Filesystems, Filesystem Hierarchy Standard
+  104.1 Create partitions and filesystems
+Dia 12:
+  104.2 Maintain the integrity of filesystems
+Dia 13:
+  104.3 Control mounting and unmounting of filesystems
+Dia 14:
+  104.4 Manage disk quotas
+Dia 15:
+  104.5 Manage file permissions and ownership
+Dia 16:
+  104.6 Create and change hard and symbolic links
+Dia 17:
+  104.7 Find system files and place files in the correct location
