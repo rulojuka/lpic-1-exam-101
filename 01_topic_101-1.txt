@@ -1,15 +1,61 @@
-Ferramentas e utilitários para listar informações variadas de hardware
-Ferramentas e utilitários para manipular dispositivos USB
-Entendimento conceitual do sysfs, udev e dbus.
+101.1 - Determinar e configurar o hardware
+	Pontos chave:
+		Ferramentas e utilitários para listar informações variadas de hardware
+		Ferramentas e utilitários para manipular dispositivos USB
+		Entendimento conceitual do sysfs, udev e dbus.
 
 O quê é o sysfs?
+	- O sysfs é um sistema de arquivos virtual que o Kernel usa para exportar objetos do kernel para os processos que rodam no espaço de usuário.
 
 Para quê serve o diretório /sys/?
+	- O diretório /sys/ é onde o sysfs é montado por padrão. Se ele não estiver montado, você pode montá-lo utilizando o comando "mount -t sysfs sysfs /sys"
+
+O quê é o procfs?
+	- Análogo ao sysfs, também é um sistema de arquivos virtual que externa informações sobre os processos em execução.
+	(man 5 proc)
 
 Para quê serve o diretório /proc/?
+	- O diretório /proc/ é onde o procfs é montado por padrão.	
+
+O quê é o udev?
+	- udev vem de "userspace /dev" e é responsável pelo gerenciamento dinâmico dos dispositivos no /dev. Quando um dispositivo é adicionado ou removido do sistema, ou muda de estado, o kernel manda um evento para o daemon systemd-udevd.service, que gerencia os eventos udev ("uevents"). Cada uevent desse é comparado com uma série de regras para decidir qual nome o dispositivo terá dentro do diretório /dev.
+
+	Do "man udev": The udev rules are read from the files located in the system rules directory /usr/lib/udev/rules.d, the volatile runtime directory
+       /run/udev/rules.d and the local administration directory /etc/udev/rules.d.
 
 Para quê serve o diretório /dev/?
+	- O /dev também é um sistema de arquivos virtual. Esse diretório descreve os dispositivos no sistema.
+	Dando um ls no /dev, podemos ver quais são os dispositivos de bloco (b), caracter (c), diretório (d) ou link simbólico (l) na primeira letra da coluna.
 
-Para quê servem os comandos lsmod, lspci e lsusb?
+O quê é PCI?
+	O Peripheral Component Interconnect é um barramento onde podemos plugar dispositivos periféricos como placas de vídeo, áudio ou rede.
+	É um barramento paralelo, sincronizado com um único clock.
+
+Para quê serve o comando lspci?
+	O comando lspci lista os dispositivos PCI encontrados no sistema. 
+	Flags:
+		-n: mostra número ao invés de mostrar o nome (que é pego de /usr/share/hwdata/pci.ids)
+		-t: mostra árvore
+		-v: verboso (aceita vv, vvv)
+		-s: restringe a saída por domain, bus, slot e function do PCI
+		-d: restringe a saída por vendor e device
+		-k: mostra o módulo do kernel que cuida ou pode cuidar do dispositivo
+
+Para quê serve os comandos lsusb?
+	O comando lsusb lista os dispositivos USB encontrados no sistema. 
+	Flags:
+		-v: verboso
+
+O quê são os módulo do kernel?
+	Existe uma infinidade de dispositivos periféricos no mercado e a maioria utiliza um driver diferente para se comunicar com o kernel. Esses drivers normalmente são colocados em módulos, que podem ser carregados e descarregados do kernel conforme a demanda.
+
+Para quê serve o comando lsmod?
+	O comando lsmod lista todos os módulos carregados no kernel.
 
 O quê faz o comando modprobe?
+	O comando modprobe carrega ou remove módulos do kernel
+	Flags:
+		-r: remove módulo
+	Exemplos:
+		modprobe foo
+		modprobe -r foo
